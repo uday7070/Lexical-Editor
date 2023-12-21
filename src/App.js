@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Editor from "./components/Editor";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./theme";
+import { CssBaseline, Grid, Typography } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Grid
+        container
+        sx={{
+          minHeight: "100vh",
+          mt: 10,
+          alignItems: "center",
+        }}
+        flexDirection="column"
+      >
+        <Grid item>
+          <Typography variant="h3">Lexical Editor</Typography>
+        </Grid>
+        <Grid item sx={{ width: "80%", mt: 5 }}>
+          <Editor />
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
 
